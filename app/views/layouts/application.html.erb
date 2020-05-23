@@ -10,7 +10,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body style="background-color: whitesmoke; padding-top:4.5rem;">
+  <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-white bg-white fixed-top">
         <div class="container">
@@ -27,6 +27,10 @@
               <%= link_to new_user_session_path ,class:"nav-link" do %>
               ログイン <% end %>
             </li>
+            <li class="nav-item">
+              <%= link_to destroy_user_session_path, method: :delete , class:"nav-link" do %>
+              ログアウト<% end %>
+            </li>
           </ul>
         </div>
 
@@ -35,5 +39,12 @@
     <div class="container">
     <%= yield %>
     </div>
+    <footer>
+      <div class="container">
+        <i class="fas fa-utensils" style="color: orange;">
+        <span style="font-family: impact">Re:Deli</span></i>
+        <p class="top-btn">Go Top</p>
+      </div>
+    </footer>
   </body>
 </html>
