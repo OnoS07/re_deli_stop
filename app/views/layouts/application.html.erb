@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>ReDeli</title>
+    <meta charset="utf-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,8 +10,30 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <body style="background-color: whitesmoke; padding-top:4.5rem;">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-white bg-white fixed-top">
+        <div class="container">
+          <a href="/" class="navbar-brand">
+            <i class="fas fa-utensils fa-2x" style="color: orange;">
+              <span style="font-family: impact">Re:Deli</span></i>
+          </a>
+          <ul class="nav">
+            <li class="nav-item">
+              <%= link_to new_user_registration_path ,class:"nav-link" do %>
+              新規登録 <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to new_user_session_path ,class:"nav-link" do %>
+              ログイン <% end %>
+            </li>
+          </ul>
+        </div>
 
-  <body>
+      </nav>
+    </header>
+    <div class="container">
     <%= yield %>
+    </div>
   </body>
 </html>
