@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   root "users#top"
   get "/" => "users#top"
 
+  resources :users, only:[:show]
+  resources :posts, only:[:index, :show, :new, :create]
+
 end
