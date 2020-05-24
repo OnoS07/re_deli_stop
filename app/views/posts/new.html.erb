@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 offset-lg-2">
+			<section class="new-form">
+				<h1 style="margin-bottom: 20px"><span>New Post</span></h1>
+				<%= form_for(@post) do |f| %>
+					<div class="field">
+						<%= f.label :Post_image, class:"btn btn-primary image-btn" %><br>
+						<%= f.attachment_field :post_image , style:"display: none",
+							class:"image-select" %>
+					</div>
+					<div class="field">
+						<%= f.label :title %><br>
+						<%= f.text_field :title, autofocus: true ,class:"form-control",
+							placeholder:"shop_name" %>
+					</div>
+					<div class="field">
+						<%= f.label :body %><br>
+						<%= f.text_area :body, autofocus: true ,class:"form-control", rows:"5",
+							placeholder:"introduction / review / comment / etc..." %>
+					</div>
+					<div class="field">
+						<%= f.submit "送信", class:"btn btn-warning btn-block" %>
+					</div>
+				<% end %>
+			</section>
+		</div>
+	</div>
+</div>
