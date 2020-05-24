@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+１ヶ月目カリキュラム、総復習のためのコンテンツ。
 
-Things you may want to cover:
+レイアウト、機能等はカリキュラムで作成したmeshiteroを参考に１から作成。
 
-* Ruby version
+bootstrap4・fontawesome5・JQuery・Javascript使用。
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+各コミットごとのコメントにて、機能の作成方法やトラブルの解決方法記入
