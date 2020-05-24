@@ -21,8 +21,15 @@
 //= require popper
 //= require bootstrap-sprockets
 
-
 $(document).ready(function () {
+//= post/new ファイル選択ボタン
+   $(".image-btn").click(function(){
+            $(".image-select").click();
+　　});
+
+
+
+//= topページのskippr
   $(".top-contents").skippr({
       // スライドショーの変化 ("fade" or "slide")
       transition : 'fade',
