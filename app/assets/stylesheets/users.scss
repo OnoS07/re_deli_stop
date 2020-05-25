@@ -28,6 +28,7 @@
 	height: 350px;
 }
 
+/* skippr画像*/
 .top1{
 	background-image: url(top1.jpg);
 	background-position: center;
@@ -53,4 +54,23 @@
 	background-position: center;
 }
 
+/* showページ*/
+.profile-main {
+    display: flex;
+    background-color: white;
+    flex-direction: row;
+	padding: 10px 20%;
+    align-items: center;
+    margin-top: 10px;
+}
 
+.profile-main > .profile-image{
+	width: 40%;
+	text-align: center;
+}
+
+.profile-main > .profile-text{
+	width: 60%;
+	padding: 10px;
+    align-items: center;
+}

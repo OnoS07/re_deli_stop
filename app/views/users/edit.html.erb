@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 offset-lg-2">
+			<section class="input-form">
+				<% if @user.errors.any? %>
+					<div class="alert">
+					 <h2><%= @user.errors.count %>errors</h2>
+					 <ul>
+					  <% @user.errors.full_messages.each do |message| %>
+					   <li> <%= message %> </li>
+					   <% end %>
+					  </ul>
+					</div>
+				<% end %>
+
+				<h1 style="margin-bottom: 20px"><span>Edit Profile</span></h1>
+			<%= form_for(@user) do |f| %>
+				<div class="field">
+					<%= f.label :Profile_image, class:"btn btn-primary image-btn" %><br>
+					<%= f.attachment_field :profile_image , style:"display: none",
+						class:"image-select" %>
+				</div>
+				<div class="field">
+					<%= f.label :name %><br>
+					<%= f.text_field :name, autofocus: true ,class:"form-control",
+						placeholder:"your_name" %>
+				</div>
+				<div class="field">
+					<%= f.label :introduction %><br>
+					<%= f.text_area :introduction, autofocus: true ,class:"form-control",
+						rows:"5" %>
+				</div>
+				<div class="field">
+					<%= f.submit "編集", class:"btn btn-warning btn-block" %>
+				</div>
+			<% end %>
+			</section>
+		</div>
+	</div>
+</div>

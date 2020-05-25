@@ -18,7 +18,7 @@
 								style:"border-radius:50%;" %>
 							<% end %><br>
 							<% if @user == current_user %>
-								<%= link_to edit_post_path(@post) do %>
+								<%= link_to edit_post_path(@post), data: {"turbolinks" => false} do %>
 								<i class="far fa-edit",
 									style="padding-right: 5px; margin-top:10px">編集</i><% end %>
 								<%= link_to post_path(@post), method: :delete do %>

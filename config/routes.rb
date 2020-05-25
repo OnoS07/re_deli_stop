@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root "users#top"
   get "/" => "users#top"
 
-  resources :users, only:[:show]
+  resources :users, only:[:show, :edit, :update]
   resources :posts
 
 end
