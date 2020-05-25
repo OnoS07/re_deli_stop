@@ -2,6 +2,16 @@
 	<div class="row">
 		<div class="col-lg-8 offset-lg-2">
 			<section class="input-form">
+			<% if @post.errors.any? %>
+			<div class="alert">
+			 <h2><%= @post.errors.count %>errors</h2>
+			 <ul>
+			  <% @post.errors.full_messages.each do |message| %>
+			   <li> <%= message %> </li>
+			   <% end %>
+			  </ul>
+			</div>
+			<% end %>
 				<h1 style="margin-bottom: 20px"><span>New Post</span></h1>
 				<%= form_for(@post) do |f| %>
 					<div class="field">
