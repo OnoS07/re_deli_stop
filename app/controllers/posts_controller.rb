@@ -1,6 +1,15 @@
 class PostsController < ApplicationController
+	before_action :authenticate_user!
+	before_action :ensure_correct_user, only:[:edit, :update, :destroy]
+	def ensure_correct_user
+		@post = Post.find(params[:id])
+		if @post.user_id != current_user.id
+			redirect_to posts_path
+		end
+	end
+
 	def index
-		@posts = Post.all
+		@posts = Post.all.order(id: "DESC")
 	end
 
 	def show

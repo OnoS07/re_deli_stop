@@ -1,11 +1,19 @@
 class UsersController < ApplicationController
+	before_action :authenticate_user!, only:[:show, :edit, :update]
+	before_action :ensure_correct_user, only:[:edit, :update]
+	def ensure_correct_user
+		@user = User.find(params[:id])
+		if current_user != @user
+			redirect_to post
+		end
+	end
 
 	def top
 	end
 
 	def show
 		@user = User.find(params[:id])
-		@posts = @user.posts
+		@posts = @user.posts.order(id: "DESC")
 	end
 
 	def edit
