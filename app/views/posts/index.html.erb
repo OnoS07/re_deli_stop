@@ -29,11 +29,7 @@
 							</div>
 							<div style="float: right">
 								<i class="far fa-comment"><%= post.post_comments.count %></i>
-								<% if post.favorites.count == 0 %>
-									<i class="fas fa-thumbs-up", style="color:silver;"></i>
-								<% else %>
-									<i class="fas fa-thumbs-up", style="color:orange;"></i>
-								<% end %>
+								<i class="fas fa-thumbs-up", style="color:silver;"></i>
 								<%= post.favorites.count %>
 							</div>
 						</div>
