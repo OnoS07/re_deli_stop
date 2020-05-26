@@ -45,7 +45,18 @@
 								<%= @post.body%>
 							</div><br>
 							<div style="float: right; margin-top: 10px">
-								comments : <%= @post.post_comments.count %>件<br>
+								<i class="far fa-comment"><%= @post.post_comments.count %>件</i>
+
+								<% if @post.favorited_by?(current_user) %>
+									<%= link_to post_favorites_path(@post), method: :delete do %>
+									<i class="fas fa-thumbs-up", style="color:orange;"></i><% end %>
+										<%= @post.favorites.count %>
+								<% else %>
+									<%= link_to post_favorites_path(@post), method: :post do %>
+									<i class="fas fa-thumbs-up", style="color:silver;"></i><% end %>
+										<%= @post.favorites.count %>
+								<% end %><br>
+
 								<%= @user.name %>  |
 								<%= @post.created_at.strftime('%Y/%m/%d') %>
 							</div>

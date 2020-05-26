@@ -27,8 +27,15 @@
 							<div class="post-body">
 								<%= post.body%>
 							</div>
-							<i class="far fa-comment" style="float: right">
-								<%= post.post_comments.count %></i>
+							<div style="float: right">
+								<i class="far fa-comment"><%= post.post_comments.count %></i>
+								<% if post.favorites.count == 0 %>
+									<i class="fas fa-thumbs-up", style="color:silver;"></i>
+								<% else %>
+									<i class="fas fa-thumbs-up", style="color:orange;"></i>
+								<% end %>
+								<%= post.favorites.count %>
+							</div>
 						</div>
 					</div>
 				</div>
