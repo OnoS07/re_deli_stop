@@ -21,13 +21,16 @@
 //= require popper
 //= require bootstrap-sprockets
 
-$(document).ready(function () {
+$(document).on('turbolinks:load', function() {
 //= post/new ファイル選択ボタン
    $(".image-btn").click(function(){
-            $(".image-select").click();
+      $(".image-select").click();
 　　});
 
-
+//= footerのトップへ戻るボタン
+   $(".top-btn").click(function(){
+      $("html, body").animate({"scrollTop":0},300)
+   });
 
 //= topページのskippr
   $(".top-contents").skippr({

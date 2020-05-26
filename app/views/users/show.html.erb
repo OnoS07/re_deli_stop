@@ -9,7 +9,7 @@
 						<div class="profile-image">
 							<%= attachment_image_tag @user, :profile_image, format:"jpg", size:"200x200",fallback:"no_image.jpg", style:"border-radius:50%;" %><br>
 							<% if @user == current_user %>
-								<%= link_to edit_user_path(@user), data: {"turbolinks" => false} do %>
+								<%= link_to edit_user_path(@user) do %>
 								<i class="far fa-edit",
 									style="padding-right: 5px; margin-top:10px">編集
 								</i><% end %>
