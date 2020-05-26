@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get "/" => "users#top"
 
   resources :users, only:[:show, :edit, :update]
-  resources :posts
+  resources :posts do
+  	resources :post_comments, only:[:create, :destroy]
+  end
 
 end

@@ -4,6 +4,19 @@
 			<% if flash[:notice] %>
 			 	<div class="flash"><%= flash[:notice]%></div>
 			<% end %>
+			<% if flash[:comment] %>
+			 	<div class="alert-flash"><%= flash[:comment]%></div>
+			<% end %>
+			<% if @post_comment.errors.any? %>
+				<div class="alert">
+				 <h2><%= @post_comment.errors.count %>errors</h2>
+				 <ul>
+				  <% @post_comment.errors.full_messages.each do |message| %>
+				   <li> <%= message %> </li>
+				   <% end %>
+				  </ul>
+				</div>
+			<% end %>
 			<section class="post-contents">
 				<div class="post-content flex">
 
@@ -32,14 +45,55 @@
 								<%= @post.body%>
 							</div><br>
 							<div style="float: right; margin-top: 10px">
-								comments:""件<br>
-								by : <%= @user.name %>  |
+								comments : <%= @post.post_comments.count %>件<br>
+								<%= @user.name %>  |
 								<%= @post.created_at.strftime('%Y/%m/%d') %>
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
+
+			<section class="comment-form">
+				<h3 style="margin-bottom: 20px"><span>Comments</span></h3>
+				<% @post_comments.each do |post_comment| %>
+					<div class="comment">
+					<div class="comment-image">
+						<%= link_to user_path(post_comment.user) do %>
+							<%= attachment_image_tag post_comment.user, :profile_image,
+								size:"100x100", format:"jpg", fallback:"no_image.jpg",
+								style:"border-radius:50%;" %>
+						<% end %>
+					</div>
+					<div class="comment-text">
+						<i class="far fa-user"><%= post_comment.user.name %></i><br>
+						<%= post_comment.comment %><br>
+						<div style="float: right;">
+							<%= post_comment.created_at.strftime('%Y/%m/%d') %>|
+						<% if current_user == post_comment.user %>
+							<%= link_to post_post_comment_path(post_comment), method: :delete do %>
+							削除<% end %>
+						<% end %>
+						</div>
+					</div>
+					</div>
+				<% end %>
+			</section>
+
+			<section class="input-form">
+				<h3 style="margin-bottom: 20px"><span>New Comment</span></h3>
+				<%= form_for [@post, @post_comment] do |f| %>
+					<div class="field">
+						<%= f.label :comment %><br>
+						<%= f.text_area :comment, class:"form-control", rows:"3",
+							placeholder:"comment / etc..." %>
+					</div>
+					<div class="field">
+						<%= f.submit "送信", class:"btn btn-warning" %>
+					</div>
+				<% end %>
+			</section>
+
 		</div>
 	</div>
 </div>
