@@ -1,11 +1,4 @@
 class PostCommentsController < ApplicationController
-	before_action :ensure_correct_user
-	def ensure_correct_user
-		@post = Post.find(params[:id])
-		if @post.user_id != current_user.id
-			redirect_to posts_path
-		end
-	end
 
 	def create
 		post_comment = PostComment.new(post_comment_params)
