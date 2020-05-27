@@ -9,3 +9,9 @@
 bootstrap4・fontawesome5・JQuery・Javascript使用。
 
 各コミットごとのコメントにて、機能の作成方法やトラブルの解決方法記入
+
+※git clean によりgitignoreが消えてしまったため、reset --hardにて
+
+[Fix]indexでのいいね表示　までやり直し。
+
+詳細はREADME更新2のコメント参照
