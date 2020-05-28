@@ -32,6 +32,16 @@ $(document).on('turbolinks:load', function() {
       $("html, body").animate({"scrollTop":0},300)
    });
 
+//= ナビゲーションバー選択時に色変更
+   $(".nav-link").hover(
+      function(){
+         $(this).css("color","orange");
+      },
+      function(){
+         $(this).css("color","black");
+      }
+   );
+
 //= topページのskippr
   $(".top-contents").skippr({
       // スライドショーの変化 ("fade" or "slide")
